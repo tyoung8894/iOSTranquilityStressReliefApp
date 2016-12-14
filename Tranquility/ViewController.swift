@@ -7,19 +7,56 @@
 //
 
 import UIKit
+import AudioToolbox
+import AVFoundation
 
 class ViewController: UIViewController {
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // Creates the rainfall gif in the background. Code borrowed from "GIF-Swift" iOSDevCenters on 12/08/16
+        let rainfallGif = UIImage.gifImageWithName("rainfall")
+        let imageView = UIImageView(image: rainfallGif)
+        imageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+        self.view.insertSubview(imageView, at: 0)
+        
+        MusicHelper.sharedHelper.playBackgroundMusic();
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // Music Helper class to play the audio file
+    class MusicHelper {
+        static let sharedHelper = MusicHelper()
+        var audioPlayer: AVAudioPlayer?
+        
+        func playBackgroundMusic() {
+            let aSound = NSURL(fileURLWithPath: Bundle.main.path(forResource: "rain-3", ofType: "wav")!)
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf:aSound as URL)
+                audioPlayer!.numberOfLoops = -1
+                audioPlayer!.prepareToPlay()
+                audioPlayer!.play()
+            } catch {
+                print("Cannot play the file")
+            }
+        }
+        
+        func stopBackgroundMusic() {
+                audioPlayer?.stop()
+            }
     }
-
+    
+    // Stops music when screen switches
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+    if segue.identifier == "ShowGameViewController" {
+            _ = segue.destination as! GameViewController
+              MusicHelper.sharedHelper.stopBackgroundMusic()
+           }
+    }
 
 }
 

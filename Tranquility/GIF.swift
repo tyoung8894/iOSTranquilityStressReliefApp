@@ -2,15 +2,17 @@
 //  GIF.swift
 //  Tranquility
 //
-//  Created by Mark Malburg and Tyler Young on 11/28/16.
-//  Copyright © 2016 Mark Malburg & Tyler Young. All rights reserved.
+//  Created by Mark Malburg on 11/28/16.
+//  Copyright © 2016 Mark Malburg, Tyler Young. All rights reserved.
 //
-//  Parts of code borrowed from "iOSDevCenters+GIF.swift" by iOSDevCenters on 11/12/15.//
+//  Parts of code borrowed from "iOSDevCenters+GIF.swift" by iOSDevCenters on 11/12/15.
 //
 
 import UIKit
 import ImageIO
 
+
+//  This extension allows a gif to be added to a UIImageView. It is utilized in "ViewController.swift"
 
 extension UIImage {
     

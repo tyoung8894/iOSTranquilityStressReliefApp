@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  Tranquility
 //
-//  Created by Mark Malburg on 11/28/16.
-//  Copyright © 2016 Mark Malburg. All rights reserved.
+//  Created by Mark Malburg and Tyler Young on 11/28/16.
+//  Copyright © 2016 Mark Malburg, Tyler Young. All rights reserved.
 //
 
 import UIKit

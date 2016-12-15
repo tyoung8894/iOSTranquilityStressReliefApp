@@ -3,13 +3,14 @@
 //  Tranquility
 //
 //  Created by Mark Malburg on 12/5/16.
-//  Copyright © 2016 Mark Malburg. All rights reserved.
+//  Copyright © 2016 Mark Malburg, Tyler Young. All rights reserved.
 //
 
 import UIKit
 import SpriteKit
 import GameplayKit
 
+// This allows the GameScene in "GameScene.sks" to be accessed
 extension SKNode {
     class func unarchiveFromFile(_ file : String) -> SKNode? {
         if let path = Bundle.main.path(forResource: file, ofType: "sks") {
@@ -28,6 +29,7 @@ extension SKNode {
 
 class GameViewController: UIViewController {
     
+    // Hides status bar
     override var prefersStatusBarHidden: Bool {
         return true
     }  
@@ -35,16 +37,6 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
-            let skView = view as! SKView
-            skView.ignoresSiblingOrder = true
-            scene.size = skView.bounds.size
-            scene.scaleMode = .aspectFill
-            skView.presentScene(scene)
-        }
-    }
-    
-    func resetGame() {
         if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
             let skView = view as! SKView
             skView.ignoresSiblingOrder = true

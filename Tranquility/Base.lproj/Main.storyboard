@@ -3,18 +3,11 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Page View Controller-->
-        <scene sceneID="noX-wj-5V5">
-            <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" pageSpacing="8" navigationOrientation="horizontal" spineLocation="none" id="3Vh-su-CRd" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="odU-P2-UrI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1028" y="115"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -28,6 +21,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TRANQUILITY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Pv1-7G-BzU">
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Pv1-7G-BzU" secondAttribute="height" multiplier="343:53" id="Yxz-qe-gXD"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="42"/>
                                 <color key="textColor" red="0.0" green="1" blue="0.69920298218714905" alpha="0.60059286347517726" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -37,7 +33,7 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Pv1-7G-BzU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Blc-BF-KpK"/>
-                            <constraint firstItem="Pv1-7G-BzU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="143" id="JCv-be-wMj"/>
+                            <constraint firstItem="Pv1-7G-BzU" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="163" id="Koi-PI-l6d"/>
                             <constraint firstItem="Pv1-7G-BzU" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="jPH-vF-B1x"/>
                         </constraints>
                         <connections>
@@ -48,7 +44,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="left" id="88j-M5-BDz">
                     <connections>
-                        <segue destination="b8X-f8-7ak" kind="presentation" identifier="ShowGameViewController" modalTransitionStyle="crossDissolve" id="wj8-cL-uJy"/>
+                        <segue destination="b8X-f8-7ak" kind="presentation" identifier="ShowGameViewController" modalTransitionStyle="crossDissolve" id="lUq-9D-3B6"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
@@ -76,12 +72,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GXZ-aD-1qY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="tV9-CE-x2U">
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="crossDissolve" id="yOg-SL-vV7"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" modalTransitionStyle="crossDissolve" id="Lsw-h0-NVX"/>
                     </connections>
                 </swipeGestureRecognizer>
                 <swipeGestureRecognizer direction="left" id="gMQ-Wu-7vU">
                     <connections>
-                        <segue destination="Esg-JO-1jM" kind="presentation" modalTransitionStyle="crossDissolve" id="IB6-CH-ca6"/>
+                        <segue destination="Esg-JO-1jM" kind="presentation" modalTransitionStyle="crossDissolve" id="k8n-ZA-zZ7"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
@@ -206,9 +202,9 @@
                                 </constraints>
                                 <items>
                                     <navigationItem title="Drawing Pad" id="9Y6-WQ-Q4H">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="JeW-r9-odo">
+                                        <barButtonItem key="leftBarButtonItem" title="Back To Game" id="JeW-r9-odo">
                                             <connections>
-                                                <segue destination="b8X-f8-7ak" kind="presentation" id="ebb-3f-2sa"/>
+                                                <segue destination="b8X-f8-7ak" kind="presentation" modalTransitionStyle="crossDissolve" id="buY-Od-IjX"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Save " id="gsy-id-W0U">
@@ -237,9 +233,6 @@
                             <constraint firstItem="fcg-bx-ap8" firstAttribute="top" secondItem="qGA-EX-xjd" secondAttribute="top" id="wIQ-jM-zgs"/>
                             <constraint firstItem="SCf-fG-Ff3" firstAttribute="top" secondItem="fcg-bx-ap8" secondAttribute="bottom" constant="55" id="x0Y-Ha-TQg"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="pcJ-e7-r2y" appends="YES" id="owT-Of-pha"/>
-                        </connections>
                     </view>
                     <connections>
                         <outlet property="padImageView" destination="fcg-bx-ap8" id="Rbz-bz-GqS"/>
@@ -247,7 +240,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="34P-Fj-DW6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="pcJ-e7-r2y"/>
                 <tapGestureRecognizer id="lyc-g8-shh">
                     <connections>
                         <action selector="saveDrawing:" destination="Esg-JO-1jM" id="FVD-4k-g7m"/>
@@ -438,6 +430,6 @@
         <image name="yellowCircle.png" width="1024" height="1024"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ebb-3f-2sa"/>
+        <segue reference="buY-Od-IjX"/>
     </inferredMetricsTieBreakers>
 </document>

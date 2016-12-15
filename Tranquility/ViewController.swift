@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  Tranquility
 //
-//  Created by Mark Malburg on 11/28/16.
-//  Copyright © 2016 Mark Malburg. All rights reserved.
+//  Created by Mark Malburg and Tyler Young on 11/28/16.
+//  Copyright © 2016 Mark Malburg, Tyler Young. All rights reserved.
 //
 
 import UIKit
@@ -12,6 +12,7 @@ import AVFoundation
 
 class ViewController: UIViewController {
     
+    // Hides status bar
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -25,6 +26,7 @@ class ViewController: UIViewController {
         imageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
         self.view.insertSubview(imageView, at: 0)
         
+        // Plays background music
         MusicHelper.sharedHelper.playBackgroundMusic();
     }
     
@@ -52,11 +54,9 @@ class ViewController: UIViewController {
     
     // Stops music when screen switches
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-    if segue.identifier == "ShowGameViewController" {
+        if segue.identifier == "ShowGameViewController" {
             _ = segue.destination as! GameViewController
-              MusicHelper.sharedHelper.stopBackgroundMusic()
-           }
+            MusicHelper.sharedHelper.stopBackgroundMusic()
+        }
     }
-
 }
-
